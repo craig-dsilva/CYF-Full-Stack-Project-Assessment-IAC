@@ -22,3 +22,7 @@ variable "home_ip" {
   type = string
   sensitive = true
 }
+
+variable "security_group" {
+  
+}
