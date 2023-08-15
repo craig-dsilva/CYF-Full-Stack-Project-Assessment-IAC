@@ -26,14 +26,19 @@ resource "aws_iam_group_policy" "video_s3" {
     Version = "2012-10-17"
     Statement = [{
         Action = [
+            "s3:ListBucket"
+        ]
+        Effect = "Allow"
+        Resource = "${aws_s3_bucket.video_recommendations_client.arn}"
+    }, {
+        Action = [
             "s3:GetObject",
             "s3:GetObjectAcl",
             "s3:PutObject",
             "s3:PutObjectAcl",
-            "s3:ListBucket"
         ]
         Effect = "Allow"
-        Resource = aws_s3_bucket.video_recommendations_client.arn
+        Resource = "${aws_s3_bucket.video_recommendations_client.arn}/*"
     }]
   })
 }
