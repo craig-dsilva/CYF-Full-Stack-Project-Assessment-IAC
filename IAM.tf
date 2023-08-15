@@ -4,6 +4,10 @@ resource "aws_iam_group" "video_recommendations" {
 
 resource "aws_iam_user" "video_recommendation_pipeline" {
   name = "video-recommendations-pipeline"
+
+  tags = {
+    "AKIAVHWPZJYZJDHJ2XM4" = "pipeline"
+  }
 }
 
 resource "aws_iam_group_membership" "video_recommendations" {
@@ -23,7 +27,9 @@ resource "aws_iam_group_policy" "video_s3" {
     Statement = [{
         Action = [
             "s3:GetObject",
+            "s3:GetObjectAcl",
             "s3:PutObject",
+            "s3:PutObjectAcl",
             "s3:ListBucket"
         ]
         Effect = "Allow"
