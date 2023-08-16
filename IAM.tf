@@ -4,10 +4,6 @@ resource "aws_iam_group" "video_recommendations" {
 
 resource "aws_iam_user" "video_recommendation_pipeline" {
   name = "video-recommendations-pipeline"
-
-  tags = {
-    "AKIAVHWPZJYZJDHJ2XM4" = "pipeline"
-  }
 }
 
 resource "aws_iam_group_membership" "video_recommendations" {
