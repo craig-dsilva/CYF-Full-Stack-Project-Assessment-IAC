@@ -10,7 +10,7 @@ variable "db_password" {
 
 variable "ec2_ami" {
   type = string
-  default = "ami-0eb260c4d5475b901"
+  default = "ami-028eb925545f314d6"
 }
 
 variable "videos_public_key" {
