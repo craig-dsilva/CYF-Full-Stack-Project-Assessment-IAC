@@ -29,4 +29,12 @@ resource "aws_codedeploy_deployment_group" "video_recommendations_server" {
   app_name = aws_codedeploy_app.video_recommendations_server.name
   deployment_group_name = aws_codedeploy_app.video_recommendations_server.name
   service_role_arn = aws_iam_role.CodeDeployRole.arn
+
+  ec2_tag_set {
+    ec2_tag_filter {
+      key = "Name"
+      type = "KEY_AND_VALUE"
+      value = "video-recommendations"
+    }
+  }
 }
